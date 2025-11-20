@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.accentYellowLight,
   },
   text: {
-    fontSize: 16,
-    fontWeight: "600",
+    fontSize: 24,
+    fontWeight: "500",
     textAlign: "center",
   },
   primaryText: {

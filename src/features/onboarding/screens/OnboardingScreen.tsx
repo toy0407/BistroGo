@@ -12,11 +12,6 @@ type OnboardingScreenNavigationProp =
 const OnboardingScreen: React.FC = () => {
   const navigation = useNavigation<OnboardingScreenNavigationProp>();
 
-  React.useEffect(() => {
-    console.log("[OnboardingScreen] mounted");
-    return () => console.log("[OnboardingScreen] unmounted");
-  }, []);
-
   const handleLogin = () => {
     navigation.navigate("Login");
   };
@@ -65,7 +60,7 @@ const styles = StyleSheet.create({
   logoWrapper: {
     position: "absolute",
     alignSelf: "center",
-    top: "35%",
+    top: "32%",
     width: "100%",
     alignItems: "center",
   },
@@ -89,7 +84,8 @@ const styles = StyleSheet.create({
   subtitle: {
     textAlign: "center",
     color: AppColors.white,
-    fontSize: 12,
+    fontSize: 14,
+    fontWeight: "500",
     lineHeight: 16,
     marginBottom: 43,
   },
