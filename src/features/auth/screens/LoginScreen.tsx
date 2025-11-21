@@ -13,6 +13,7 @@ import { AppColors } from "../../../theme";
 import { Button } from "@/components";
 import { TextInput, PasswordInput } from "../components";
 import { useLoginForm, useAuthNavigation } from "../hooks";
+import { useAuthStore } from "@/store";
 
 const LoginScreen: React.FC = () => {
   const {
@@ -28,13 +29,19 @@ const LoginScreen: React.FC = () => {
 
   const { goBack, navigateToRegister, navigateToForgotPassword } =
     useAuthNavigation();
+  const login = useAuthStore((state) => state.login);
 
-  const handleLogin = useCallback(() => {
+  const handleLogin = useCallback(async () => {
     if (validateForm()) {
-      // TODO: Implement login logic
-      console.log("Login with:", email, password);
+      try {
+        await login(email, password);
+        console.log("Login successful");
+      } catch (error) {
+        console.error("Login failed:", error);
+        // TODO: Show error message to user
+      }
     }
-  }, [validateForm, email, password]);
+  }, [validateForm, email, password, login]);
 
   const handleSocialLogin = useCallback((provider: string) => {
     // TODO: Implement social login

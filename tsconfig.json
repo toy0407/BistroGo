@@ -10,6 +10,8 @@
       "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
       "@features/*": ["src/features/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@models/*": ["src/models/*"],
       "@navigation/*": ["src/navigation/*"],
       "@services/*": ["src/services/*"],
       "@store/*": ["src/store/*"],
