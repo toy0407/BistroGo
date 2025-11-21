@@ -47,9 +47,13 @@ export const useAuthStore = create<AuthState>((set) => ({
   ) => {
     try {
       set({ loading: true, error: null });
-      await AuthService.signup(name, email, phoneNumber, password, birthDate);
-      // Fetch the user after successful signup
-      const user = await AuthService.getCurrentUser();
+      const user = await AuthService.signup(
+        name,
+        email,
+        phoneNumber,
+        password,
+        birthDate
+      );
       set({ user, loading: false });
     } catch (error) {
       set({
@@ -60,7 +64,8 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
-  logout: () => {
+  logout: async () => {
+    await AuthService.logout();
     set({ user: null, error: null });
   },
 
