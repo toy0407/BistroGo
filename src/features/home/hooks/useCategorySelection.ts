@@ -1,6 +1,6 @@
 import React from "react";
 import { categoryCatalog, homeCategories } from "../data/homeContent";
-import { FoodItem } from "../types";
+import { FoodItem } from "@/models/foodItem.model";
 
 export const useCategorySelection = () => {
   const [activeCategory, setActiveCategory] = React.useState<string | null>(

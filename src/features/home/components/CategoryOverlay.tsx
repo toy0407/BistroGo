@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import { AppColors } from "../../../theme";
-import { FoodItem } from "../types";
+import { FoodItem } from "@models/foodItem.model";
 
 interface CategoryOverlayProps {
   categoryName: string | null;
@@ -56,7 +56,7 @@ export const CategoryOverlay: React.FC<CategoryOverlayProps> = ({
                     {item.rating ? (
                       <View style={styles.ratingBadge}>
                         <Text style={styles.ratingBadgeText}>
-                          {item.rating.toFixed(1)} ★
+                          {item.rating.toFixed(1)} ⭐️
                         </Text>
                       </View>
                     ) : null}
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 32,
     paddingTop: 24,
     paddingHorizontal: 20,
-    shadowColor: "#000",
+    shadowColor: AppColors.black,
     shadowOpacity: 0.12,
     shadowRadius: 18,
     shadowOffset: { width: 0, height: 10 },
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   sortLabel: {
     fontSize: 12,
-    color: AppColors.black,
+    color: AppColors.textDark,
     marginRight: 6,
   },
   sortChipText: {
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     padding: 12,
     marginBottom: 16,
-    shadowColor: "#000",
+    shadowColor: AppColors.black,
     shadowOpacity: 0.05,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   categoryListTitle: {
     fontSize: 18,
     fontWeight: "700",
-    color: "#3d2d1c",
+    color: AppColors.textDark,
     flexShrink: 1,
   },
   categoryListPrice: {

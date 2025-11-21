@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    backgroundColor: "#F5F5F5",
+    backgroundColor: AppColors.backgroundLight,
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
     paddingHorizontal: 24,
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: "600",
-    color: "#333",
+    color: AppColors.textDark,
     marginBottom: 69,
   },
   forgotPassword: {
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
   orText: {
     textAlign: "center",
-    color: "#666",
+    color: AppColors.textDark,
     fontSize: 14,
     fontWeight: "300",
     marginBottom: 16,
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   signUpText: {
-    color: "#666",
+    color: AppColors.textDark,
     fontSize: 14,
     fontWeight: "300",
   },

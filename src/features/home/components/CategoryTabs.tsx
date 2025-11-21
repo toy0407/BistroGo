@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { AppColors } from "../../../theme";
-import { Category } from "../types";
+import { Category } from "@/models/category.model";
 
 interface CategoryTabsProps {
   categories: Category[];
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     padding: 0,
     borderRadius: 24,
-    shadowColor: "#000",
+    shadowColor: AppColors.black,
     shadowOpacity: 0.04,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 4 },
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   tabActive: {
     backgroundColor: AppColors.white,
-    shadowColor: "#d28c00",
+    shadowColor: AppColors.accentYellow,
     shadowOpacity: 0.35,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 6 },
@@ -79,10 +79,10 @@ const styles = StyleSheet.create({
   },
   tabLabel: {
     fontSize: 12,
-    color: AppColors.black,
+    color: AppColors.textDark,
     fontWeight: "400",
   },
   tabLabelActive: {
-    color: AppColors.black,
+    color: AppColors.textDark,
   },
 });

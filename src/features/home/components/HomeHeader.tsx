@@ -35,7 +35,7 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({
       >
         <TextInput
           placeholder="Search"
-          placeholderTextColor="#b4b4b4"
+          placeholderTextColor={AppColors.greyLight}
           style={styles.searchInput}
         />
         <View style={styles.iconRow}>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 16,
     paddingVertical: 12,
-    color: AppColors.textPrimary ?? "#2f1f0f",
+    color: AppColors.textDark,
   },
   iconRow: {
     flexDirection: "row",

@@ -1,4 +1,6 @@
-import { Category, CategoryCatalog, FeaturedPromo, FoodItem } from "../types";
+import { FoodItem } from "@/models/foodItem.model";
+import { CategoryCatalog, FeaturedPromo } from "../types";
+import { Category } from "@/models/category.model";
 
 const snackImage = require("@assets/images/snacks.png");
 const mealImage = require("@assets/images/meal.png");

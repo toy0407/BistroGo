@@ -1,9 +1,11 @@
 export enum AppColors {
   background = "#E95322", // primary orange
+  backgroundLight = "#F5F5F5",
   accentYellow = "#F5CB58",
   accentYellowLight = "#F3E9B5",
   white = "#FFFFFF",
   black = "#000000",
-  textDark = "#E95322",
+  textDark = "#391713",
   textPrimary = "#FFFFFF",
+  greyLight = "#676767",
 }

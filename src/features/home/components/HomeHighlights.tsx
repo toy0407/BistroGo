@@ -1,7 +1,8 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { AppColors } from "../../../theme";
-import { FeaturedPromo, FoodItem } from "../types";
+import { FeaturedPromo } from "../types";
+import { FoodItem } from "@/models/foodItem.model";
 
 interface HomeHighlightsProps {
   bestSellers: FoodItem[];
@@ -69,7 +70,7 @@ export const HomeHighlights: React.FC<HomeHighlightsProps> = ({
               </Text>
               {item.rating ? (
                 <Text style={styles.recommendRating}>
-                  ⭐ {item.rating.toFixed(1)}
+                  {item.rating.toFixed(1)} ⭐️
                 </Text>
               ) : null}
               <Text style={styles.recommendPrice}>
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: "500",
-    color: AppColors.black,
+    color: AppColors.textDark,
   },
   sectionLink: {
     fontSize: 12,
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     backgroundColor: AppColors.white,
     padding: 12,
-    shadowColor: "#000",
+    shadowColor: AppColors.black,
     shadowOpacity: 0.08,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 4 },
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#3d2d1c",
+    color: AppColors.textDark,
   },
   cardPrice: {
     marginTop: 6,
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderRadius: 18,
     backgroundColor: AppColors.white,
-    shadowColor: "#000",
+    shadowColor: AppColors.black,
     shadowOpacity: 0.05,
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 4 },
@@ -195,12 +196,12 @@ const styles = StyleSheet.create({
   recommendTitle: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#3d2d1c",
+    color: AppColors.textDark,
   },
   recommendRating: {
     marginTop: 4,
     fontSize: 12,
-    color: "#f7b500",
+    color: AppColors.textDark,
   },
   recommendPrice: {
     marginTop: 4,

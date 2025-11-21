@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    backgroundColor: "#fffaf3",
+    backgroundColor: AppColors.backgroundLight,
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
     paddingTop: 24,
