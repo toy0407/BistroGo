@@ -10,6 +10,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AppColors } from "../../../theme";
 import { CategoryOverlay } from "../components/CategoryOverlay";
+import { BottomNavBar } from "../components/BottomNavBar";
 import { CategoryTabs } from "../components/CategoryTabs";
 import { HomeHeader } from "../components/HomeHeader";
 import { HomeHighlights } from "../components/HomeHighlights";
@@ -23,6 +24,26 @@ import {
 import { useCategorySelection } from "../hooks/useCategorySelection";
 import { useHomeHeaderAnimation } from "../hooks/useHomeHeaderAnimation";
 import { useProfileDrawer } from "../hooks/useProfileDrawer";
+
+const navItems = [
+  { id: "home", label: "Home", icon: require("@assets/icons/home.png") },
+  { id: "dishes", label: "Dishes", icon: require("@assets/icons/menu.png") },
+  {
+    id: "favorites",
+    label: "Favorites",
+    icon: require("@assets/icons/favorites.png"),
+  },
+  {
+    id: "orders",
+    label: "Orders",
+    icon: require("@assets/icons/clipboard.png"),
+  },
+  {
+    id: "support",
+    label: "Support",
+    icon: require("@assets/icons/support.png"),
+  },
+];
 
 const HomeScreen: React.FC = () => {
   const {
@@ -50,6 +71,11 @@ const HomeScreen: React.FC = () => {
     openDrawer,
     closeDrawer,
   } = useProfileDrawer();
+  const [activeNavItem, setActiveNavItem] = React.useState(navItems[0].id);
+
+  const handleNavSelect = React.useCallback((id: string) => {
+    setActiveNavItem(id);
+  }, []);
 
   return (
     <View style={styles.safeArea}>
@@ -114,6 +140,13 @@ const HomeScreen: React.FC = () => {
           </Animated.View>
         </View>
       </KeyboardAvoidingView>
+      <View style={styles.bottomNavWrapper} pointerEvents="box-none">
+        <BottomNavBar
+          items={navItems}
+          activeId={activeNavItem}
+          onSelect={handleNavSelect}
+        />
+      </View>
       {isDrawerVisible ? (
         <View style={styles.drawerOverlay} pointerEvents="box-none">
           <Pressable style={styles.drawerScrimPressable} onPress={closeDrawer}>
@@ -168,14 +201,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
   defaultScrollContent: {
-    paddingBottom: 48,
+    paddingBottom: 140,
   },
   overlayScrollContent: {
     paddingHorizontal: 0,
     flexGrow: 1,
+    paddingBottom: 140,
   },
   scrollArea: {
     flex: 1,
+  },
+  bottomNavWrapper: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 5,
   },
   drawerOverlay: {
     ...StyleSheet.absoluteFillObject,
