@@ -5,14 +5,6 @@ export type AuthStackParamList = {
   ForgotPassword: undefined;
 };
 
-export type MainTabParamList = {
-  Home: undefined;
-  Profile: { userId: string };
-  Settings: undefined;
-};
-
 export type RootStackParamList = {
   Home: undefined;
-  MainTabs: undefined;
-  Modal: { title: string };
 };
