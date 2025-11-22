@@ -3,6 +3,7 @@ import {
   Animated,
   KeyboardAvoidingView,
   Platform,
+  Pressable,
   StyleSheet,
   View,
 } from "react-native";
@@ -12,6 +13,7 @@ import { CategoryOverlay } from "../components/CategoryOverlay";
 import { CategoryTabs } from "../components/CategoryTabs";
 import { HomeHeader } from "../components/HomeHeader";
 import { HomeHighlights } from "../components/HomeHighlights";
+import { ProfileDrawer } from "../components/ProfileDrawer";
 import {
   bestSellers,
   featuredPromos,
@@ -20,6 +22,7 @@ import {
 } from "../data/homeContent";
 import { useCategorySelection } from "../hooks/useCategorySelection";
 import { useHomeHeaderAnimation } from "../hooks/useHomeHeaderAnimation";
+import { useProfileDrawer } from "../hooks/useProfileDrawer";
 
 const HomeScreen: React.FC = () => {
   const {
@@ -39,6 +42,15 @@ const HomeScreen: React.FC = () => {
     cardLift,
   } = useHomeHeaderAnimation(activeCategory);
 
+  const {
+    isDrawerVisible,
+    drawerWidth,
+    drawerTranslateX,
+    drawerBackdropOpacity,
+    openDrawer,
+    closeDrawer,
+  } = useProfileDrawer();
+
   return (
     <View style={styles.safeArea}>
       <SafeAreaView style={styles.topSafeArea} />
@@ -52,6 +64,7 @@ const HomeScreen: React.FC = () => {
             greetingOpacity={greetingOpacity}
             greetingHeight={greetingHeight}
             greetingTranslate={greetingTranslate}
+            onProfilePress={openDrawer}
           />
 
           <Animated.View
@@ -77,8 +90,8 @@ const HomeScreen: React.FC = () => {
               showsVerticalScrollIndicator={false}
               scrollEventThrottle={16}
               onScroll={scrollHandler}
-              scrollEnabled={!isOverlayActive}
-              bounces={!isOverlayActive}
+              scrollEnabled={!isOverlayActive && !isDrawerVisible}
+              bounces={!isOverlayActive && !isDrawerVisible}
               contentContainerStyle={
                 !isOverlayActive
                   ? styles.defaultScrollContent
@@ -101,6 +114,27 @@ const HomeScreen: React.FC = () => {
           </Animated.View>
         </View>
       </KeyboardAvoidingView>
+      {isDrawerVisible ? (
+        <View style={styles.drawerOverlay} pointerEvents="box-none">
+          <Pressable style={styles.drawerScrimPressable} onPress={closeDrawer}>
+            <Animated.View
+              pointerEvents="none"
+              style={[styles.drawerScrim, { opacity: drawerBackdropOpacity }]}
+            />
+          </Pressable>
+          <Animated.View
+            style={[
+              styles.drawerPanel,
+              {
+                width: drawerWidth,
+                transform: [{ translateX: drawerTranslateX }],
+              },
+            ]}
+          >
+            <ProfileDrawer />
+          </Animated.View>
+        </View>
+      ) : null}
     </View>
   );
 };
@@ -109,6 +143,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: AppColors.accentYellow,
+    position: "relative",
   },
   topSafeArea: {
     backgroundColor: AppColors.accentYellow,
@@ -118,6 +153,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    position: "relative",
   },
   card: {
     flex: 1,
@@ -140,6 +176,28 @@ const styles = StyleSheet.create({
   },
   scrollArea: {
     flex: 1,
+  },
+  drawerOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 10,
+  },
+  drawerScrimPressable: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  drawerScrim: {
+    flex: 1,
+    backgroundColor: AppColors.black,
+  },
+  drawerPanel: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    right: 0,
+    shadowColor: AppColors.black,
+    shadowOpacity: 0.25,
+    shadowRadius: 12,
+    shadowOffset: { width: -4, height: 0 },
+    elevation: 12,
   },
 });
 

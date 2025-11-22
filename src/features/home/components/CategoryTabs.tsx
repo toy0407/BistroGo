@@ -15,7 +15,9 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
   onSelect,
 }) => {
   return (
-    <View style={styles.tabRow}>
+    <View
+      style={[styles.tabRow, { marginHorizontal: activeCategory ? 24 : 8 }]}
+    >
       {categories.map((category) => {
         const isActive = activeCategory === category.id;
         return (

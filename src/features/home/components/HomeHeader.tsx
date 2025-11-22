@@ -15,6 +15,7 @@ interface HomeHeaderProps {
   greetingOpacity: Animated.AnimatedInterpolation<number>;
   greetingHeight: Animated.AnimatedInterpolation<number>;
   greetingTranslate: Animated.AnimatedInterpolation<number>;
+  onProfilePress?: () => void;
 }
 
 export const HomeHeader: React.FC<HomeHeaderProps> = ({
@@ -22,6 +23,7 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({
   greetingOpacity,
   greetingHeight,
   greetingTranslate,
+  onProfilePress,
 }) => {
   return (
     <View style={styles.header}>
@@ -51,7 +53,7 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({
               source={require("@assets/icons/notification.png")}
             />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onProfilePress}>
             <Image
               style={styles.headerIcon}
               source={require("@assets/icons/profile.png")}

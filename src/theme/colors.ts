@@ -7,5 +7,6 @@ export enum AppColors {
   black = "#000000",
   textDark = "#391713",
   textPrimary = "#FFFFFF",
+  textYellow = "#F3E9B5",
   greyLight = "#676767",
 }
