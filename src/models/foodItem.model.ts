@@ -3,6 +3,7 @@ export interface FoodItem {
   title: string;
   price: number;
   image: string;
-  rating?: number;
+  rating: number;
+  isFavorite: boolean;
   description?: string;
 }

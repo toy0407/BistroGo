@@ -41,6 +41,8 @@ export const bestSellers: FoodItem[] = [
     id: "bs-1",
     title: "Salmon Sushi",
     price: 10.3,
+    rating: 4.9,
+    isFavorite: true,
     image:
       "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=400&q=60",
   },
@@ -48,6 +50,8 @@ export const bestSellers: FoodItem[] = [
     id: "bs-2",
     title: "Quinoa Bowl",
     price: 12.5,
+    rating: 4.7,
+    isFavorite: false,
     image:
       "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=60",
   },
@@ -55,6 +59,8 @@ export const bestSellers: FoodItem[] = [
     id: "bs-3",
     title: "Garden Lasagna",
     price: 12.99,
+    rating: 5,
+    isFavorite: true,
     image:
       "https://images.unsplash.com/photo-1730900737654-ac6d843139da?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -62,6 +68,8 @@ export const bestSellers: FoodItem[] = [
     id: "bs-4",
     title: "Berry Cupcake",
     price: 8.2,
+    rating: 4.8,
+    isFavorite: false,
     image:
       "https://plus.unsplash.com/premium_photo-1661591379945-6b7bf9ecfcc7?q=80&w=1319&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -90,6 +98,7 @@ export const recommendedItems: FoodItem[] = [
     title: "Spicy Burger",
     price: 10,
     rating: 5,
+    isFavorite: true,
     image:
       "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=60",
   },
@@ -98,14 +107,16 @@ export const recommendedItems: FoodItem[] = [
     title: "Spring Rolls",
     price: 25,
     rating: 4.9,
+    isFavorite: false,
     image:
-      "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=600&q=60",
+      "https://images.unsplash.com/photo-1695712641569-05eee7b37b6d?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "rec-3",
     title: "Breakfast Bowl",
     price: 14.5,
     rating: 4.7,
+    isFavorite: true,
     image:
       "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=600&q=60",
   },
@@ -114,6 +125,7 @@ export const recommendedItems: FoodItem[] = [
     title: "Avocado Toast",
     price: 9.99,
     rating: 4.8,
+    isFavorite: false,
     image:
       "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=600&q=60",
   },
@@ -128,6 +140,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1582169296194-e4d644c48063?q=80&w=3700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       rating: 5,
+      isFavorite: true,
       description: "Tortilla chips with toppins",
     },
     {
@@ -137,6 +150,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=60",
       rating: 4.8,
+      isFavorite: false,
       description: "Cheesy peppers with herbs",
     },
   ],
@@ -148,6 +162,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=60",
       rating: 4.9,
+      isFavorite: true,
       description: "Glazed salmon with jasmine rice",
     },
     {
@@ -157,6 +172,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=600&q=60",
       rating: 5,
+      isFavorite: false,
       description: "Herb crusted salmon filet",
     },
   ],
@@ -168,6 +184,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=60",
       rating: 4.7,
+      isFavorite: false,
       description: "Marinated tofu with veggies",
     },
     {
@@ -177,6 +194,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=600&q=60",
       rating: 4.6,
+      isFavorite: true,
       description: "Crisp greens and citrus",
     },
   ],
@@ -188,6 +206,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1447078806655-40579c2520d6?auto=format&fit=crop&w=600&q=60",
       rating: 4.9,
+      isFavorite: true,
       description: "Buttery crust with citrus curd",
     },
     {
@@ -197,6 +216,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=60",
       rating: 5,
+      isFavorite: false,
       description: "Rich cocoa sponge",
     },
   ],
@@ -208,6 +228,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1459257868276-5e65389e2722?auto=format&fit=crop&w=600&q=60",
       rating: 4.8,
+      isFavorite: true,
       description: "Cold brew with milk",
     },
     {
@@ -217,6 +238,7 @@ export const categoryCatalog: CategoryCatalog = {
       image:
         "https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=600&q=60",
       rating: 4.9,
+      isFavorite: false,
       description: "Mixed berries and yogurt",
     },
   ],

@@ -4,6 +4,7 @@ import { AppColors } from "../../../theme";
 import { FeaturedPromo } from "../types";
 import { FoodItem } from "@/models/foodItem.model";
 import { BestSellerCard } from "./BestSellerCard";
+import { RecommendedCard } from "./RecommendedCard";
 
 interface HomeHighlightsProps {
   bestSellers: FoodItem[];
@@ -56,22 +57,14 @@ export const HomeHighlights: React.FC<HomeHighlightsProps> = ({
       </View>
       <View style={styles.recommendGrid}>
         {recommendedItems.map((item) => (
-          <View key={item.id} style={styles.recommendCard}>
-            <Image source={{ uri: item.image }} style={styles.recommendImage} />
-            <View style={styles.recommendBody}>
-              <Text style={styles.recommendTitle} numberOfLines={1}>
-                {item.title}
-              </Text>
-              {item.rating ? (
-                <Text style={styles.recommendRating}>
-                  {item.rating.toFixed(1)} ⭐️
-                </Text>
-              ) : null}
-              <Text style={styles.recommendPrice}>
-                ${item.price.toFixed(2)}
-              </Text>
-            </View>
-          </View>
+          <RecommendedCard
+            key={item.id}
+            title={item.title}
+            image={item.image}
+            price={item.price}
+            rating={item.rating}
+            isFavorite={item.isFavorite}
+          />
         ))}
       </View>
     </View>
@@ -139,40 +132,5 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "space-between",
     paddingTop: 12,
-  },
-  recommendCard: {
-    width: "48%",
-    marginBottom: 12,
-    borderRadius: 18,
-    backgroundColor: AppColors.white,
-    shadowColor: AppColors.black,
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 4 },
-  },
-  recommendImage: {
-    width: "100%",
-    height: 110,
-    borderTopLeftRadius: 18,
-    borderTopRightRadius: 18,
-  },
-  recommendBody: {
-    padding: 10,
-  },
-  recommendTitle: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: AppColors.textDark,
-  },
-  recommendRating: {
-    marginTop: 4,
-    fontSize: 12,
-    color: AppColors.textDark,
-  },
-  recommendPrice: {
-    marginTop: 4,
-    fontSize: 14,
-    fontWeight: "700",
-    color: AppColors.background,
   },
 });
