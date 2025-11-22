@@ -15,6 +15,7 @@ interface AuthState {
     birthDate: string
   ) => Promise<void>;
   logout: () => void;
+  forgotPassword: () => Promise<void>;
   checkAuth: () => Promise<void>;
   clearError: () => void;
 }
@@ -67,6 +68,11 @@ export const useAuthStore = create<AuthState>((set) => ({
   logout: async () => {
     await AuthService.logout();
     set({ user: null, error: null });
+  },
+
+  forgotPassword: async () => {
+    await AuthService.forgotPassword();
+    set({ loading: false });
   },
 
   checkAuth: async () => {

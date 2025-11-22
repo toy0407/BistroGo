@@ -19,17 +19,29 @@ const TextInput: React.FC<TextInputProps> = ({
   label,
   error,
   style,
+  onFocus: onFocusProp,
+  onBlur: onBlurProp,
   ...textInputProps
 }) => {
   const [isFocused, setIsFocused] = useState(false);
+  type FocusEvent = Parameters<NonNullable<RNTextInputProps["onFocus"]>>[0];
+  type BlurEvent = Parameters<NonNullable<RNTextInputProps["onBlur"]>>[0];
 
-  const handleFocus = useCallback(() => {
-    setIsFocused(true);
-  }, []);
+  const handleFocus = useCallback(
+    (event: FocusEvent) => {
+      setIsFocused(true);
+      onFocusProp?.(event);
+    },
+    [onFocusProp]
+  );
 
-  const handleBlur = useCallback(() => {
-    setIsFocused(false);
-  }, []);
+  const handleBlur = useCallback(
+    (event: BlurEvent) => {
+      setIsFocused(false);
+      onBlurProp?.(event);
+    },
+    [onBlurProp]
+  );
 
   return (
     <View style={[styles.container, style]}>
@@ -74,7 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   inputContainerFocused: {
-    borderColor: AppColors.background,
+    borderColor: AppColors.accentYellow,
     backgroundColor: AppColors.accentYellowLight,
   },
   inputContainerError: {

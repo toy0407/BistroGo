@@ -49,9 +49,9 @@ const signup = async (
   return user;
 };
 
-const forgotPassword = async (email: string) => {
+const forgotPassword = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
-  console.log(`Password reset link sent to email: ${email}`);
+  console.log(`Password has been reset`);
 };
 
 const getCurrentUser = async (): Promise<User | null> => {

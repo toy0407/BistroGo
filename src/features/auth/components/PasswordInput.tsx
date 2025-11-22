@@ -68,7 +68,9 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
           style={styles.iconButton}
           activeOpacity={0.7}
         >
-          <Text style={styles.iconText}>{isPasswordVisible ? "🙈" : "👁️"}</Text>
+          <Text style={styles.iconText}>
+            {isPasswordVisible ? "Hide" : "Show"}
+          </Text>
         </TouchableOpacity>
       </View>
       {error && <Text style={styles.errorText}>{error}</Text>}
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
     height: 56,
   },
   inputContainerFocused: {
-    borderColor: AppColors.background,
+    borderColor: AppColors.accentYellow,
     backgroundColor: AppColors.accentYellowLight,
   },
   inputContainerError: {
@@ -115,7 +117,9 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   iconText: {
-    fontSize: 20,
+    fontSize: 13,
+    color: AppColors.background,
+    fontWeight: "500",
   },
   errorText: {
     color: "#E53935",

@@ -14,6 +14,7 @@ interface ButtonProps {
   onPress: () => void;
   style?: ViewStyle;
   disabled?: boolean;
+  fontSize?: number;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -22,6 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   onPress,
   style,
   disabled = false,
+  fontSize = 24,
 }) => {
   const isPrimary = variant === "primary";
   const isSecondary = variant === "secondary";
@@ -46,6 +48,7 @@ const Button: React.FC<ButtonProps> = ({
       <Text
         style={[
           styles.text,
+          { fontSize },
           isPrimary
             ? styles.primaryText
             : isSecondary
@@ -78,7 +81,6 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.accentYellowLight,
   },
   text: {
-    fontSize: 24,
     fontWeight: "500",
     textAlign: "center",
   },
