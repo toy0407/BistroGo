@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     width: 24,
   },
   iconInactive: {
-    tintColor: "rgba(255,255,255,0.45)",
+    tintColor: "rgba(255,255,255,0.80)",
   },
   iconActive: {
     tintColor: AppColors.white,
