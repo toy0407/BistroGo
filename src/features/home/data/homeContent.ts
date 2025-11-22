@@ -56,14 +56,14 @@ export const bestSellers: FoodItem[] = [
     title: "Garden Lasagna",
     price: 12.99,
     image:
-      "https://images.unsplash.com/photo-1608039829574-3c9e4810a17b?auto=format&fit=crop&w=400&q=60",
+      "https://images.unsplash.com/photo-1730900737654-ac6d843139da?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "bs-4",
     title: "Berry Cupcake",
     price: 8.2,
     image:
-      "https://images.unsplash.com/photo-1498522271744-cb89e8eaa74c?auto=format&fit=crop&w=400&q=60",
+      "https://plus.unsplash.com/premium_photo-1661591379945-6b7bf9ecfcc7?q=80&w=1319&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 

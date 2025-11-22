@@ -3,6 +3,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { AppColors } from "../../../theme";
 import { FeaturedPromo } from "../types";
 import { FoodItem } from "@/models/foodItem.model";
+import { BestSellerCard } from "./BestSellerCard";
 
 interface HomeHighlightsProps {
   bestSellers: FoodItem[];
@@ -27,14 +28,7 @@ export const HomeHighlights: React.FC<HomeHighlightsProps> = ({
         contentContainerStyle={styles.bestSellerList}
       >
         {bestSellers.map((item) => (
-          <View key={item.id} style={styles.bestSellerCard}>
-            <Image
-              source={{ uri: item.image }}
-              style={styles.bestSellerImage}
-            />
-            <Text style={styles.cardTitle}>{item.title}</Text>
-            <Text style={styles.cardPrice}>${item.price.toFixed(2)}</Text>
-          </View>
+          <BestSellerCard key={item.id} image={item.image} price={item.price} />
         ))}
       </ScrollView>
 
@@ -105,34 +99,6 @@ const styles = StyleSheet.create({
   bestSellerList: {
     paddingVertical: 20,
     paddingHorizontal: 8,
-  },
-  bestSellerCard: {
-    width: 140,
-    marginRight: 16,
-    borderRadius: 18,
-    backgroundColor: AppColors.white,
-    padding: 12,
-    shadowColor: AppColors.black,
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 4 },
-  },
-  bestSellerImage: {
-    width: "100%",
-    height: 90,
-    borderRadius: 12,
-    marginBottom: 10,
-  },
-  cardTitle: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: AppColors.textDark,
-  },
-  cardPrice: {
-    marginTop: 6,
-    fontSize: 13,
-    fontWeight: "700",
-    color: AppColors.background,
   },
   featuredContainer: {
     paddingLeft: 8,
