@@ -3,8 +3,6 @@ import { ImageSourcePropType } from "react-native";
 
 export interface FeaturedPromo {
   id: string;
-  title: string;
-  description: string;
   image: string;
 }
 

@@ -78,15 +78,11 @@ export const bestSellers: FoodItem[] = [
 export const featuredPromos: FeaturedPromo[] = [
   {
     id: "ft-1",
-    title: "Experience our delicious new dish",
-    description: "30% OFF",
     image:
-      "https://images.unsplash.com/photo-1548365328-8b1599766c68?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "ft-2",
-    title: "Chef's Specials just for you",
-    description: "Limited time",
     image:
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60",
   },
